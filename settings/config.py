@@ -1,6 +1,6 @@
 from builtins import bool, int, str
 from pathlib import Path
-from pydantic import  Field, AnyUrl, DirectoryPath
+from pydantic import Field, AnyUrl
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
@@ -40,7 +40,7 @@ class Settings(BaseSettings):
     smtp_port: int = Field(default=2525, description="SMTP port for sending emails")
     smtp_username: str = Field(default='your-mailtrap-username', description="Username for SMTP server")
     smtp_password: str = Field(default='your-mailtrap-password', description="Password for SMTP server")
-
+    smtp_host: str = Field(default='sandbox.smtp.mailtrap.io', description="SMTP host for sending emails")
 
     class Config:
         # If your .env file is not in the root directory, adjust the path accordingly.
